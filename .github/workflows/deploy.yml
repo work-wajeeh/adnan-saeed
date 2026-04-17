@@ -2,29 +2,16 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in: false
+    branches: [master]
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: none
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -32,5 +19,4 @@ jobs:
           path: ./dist
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
