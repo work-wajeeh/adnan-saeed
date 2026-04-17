@@ -109,30 +109,30 @@ function App() {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#hero" className="text-lg font-semibold text-gray-900">
+        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+          <a href="#hero" className="text-base sm:text-lg font-semibold text-gray-900">
             {ADVOCATE.name}
           </a>
-          <div className="flex gap-8 text-sm text-gray-600">
-            <a href="#about" className="hover:text-gray-900 transition-colors">About</a>
-            <a href="#experience" className="hover:text-gray-900 transition-colors">Experience</a>
-            <a href="#education" className="hover:text-gray-900 transition-colors">Education</a>
-            <a href="#practice" className="hover:text-gray-900 transition-colors">Practice</a>
-            <a href="#contact" className="hover:text-gray-900 transition-colors">Contact</a>
+          <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm text-gray-600 overflow-x-auto">
+            <a href="#about" className="hover:text-gray-900 transition-colors whitespace-nowrap">About</a>
+            <a href="#experience" className="hover:text-gray-900 transition-colors whitespace-nowrap">Experience</a>
+            <a href="#education" className="hover:text-gray-900 transition-colors whitespace-nowrap">Education</a>
+            <a href="#practice" className="hover:text-gray-900 transition-colors whitespace-nowrap">Practice</a>
+            <a href="#contact" className="hover:text-gray-900 transition-colors whitespace-nowrap">Contact</a>
           </div>
         </div>
       </nav>
 
       {/* Hero */}
-      <section id="hero" className="pt-32 pb-20 px-6">
+      <section id="hero" className="pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm text-gray-500 mb-4 tracking-wider uppercase">
+          <p className="text-xs sm:text-sm text-gray-500 mb-4 tracking-wider uppercase">
             {ADVOCATE.title}
           </p>
-          <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight">
             {ADVOCATE.name}
           </h1>
-          <p className="text-xl text-gray-600 mb-10 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-10 max-w-xl mx-auto">
             {ADVOCATE.tagline}
           </p>
           <a href="#contact" className="inline-block px-8 py-3 bg-gray-900 text-white text-sm hover:bg-gray-800 transition-colors">
