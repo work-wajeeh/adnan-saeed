@@ -86,15 +86,15 @@ const ADVOCATE = {
     "Lahore Tax Bar Association (Mem #A-436) – Since 2016"
   ],
   practiceAreas: [
-    "Constitutional Law",
-    "Corporate & Commercial",
-    "Civil & Criminal Litigation",
-    "Labor & Employment",
-    "Consumer Protection",
-    "Real Estate & Revenue",
-    "Regulatory Compliance",
-    "Company Incorporation (SECP)",
-    "Intellectual Property"
+    { name: "Constitutional Law", desc: "Constitutional petitions before High Courts" },
+    { name: "Corporate & Commercial", desc: "Company incorporation (SECP), MoA & AoA, corporate governance, due diligence" },
+    { name: "Civil & Criminal Litigation", desc: "Complex disputes before courts and regulators" },
+    { name: "Labor & Employment", desc: "Labour disputes, Labour Courts, Service Tribunals" },
+    { name: "Consumer Protection", desc: "Consumer rights and protection cases" },
+    { name: "Real Estate & Revenue", desc: "Title verification, sale deeds, lease agreements, conveyancing" },
+    { name: "Regulatory Compliance", desc: "SECP, environmental and regulatory compliance" },
+    { name: "Security & Financial Documentation", desc: "Mortgage agreements, guarantee agreements, and security sharing arrangements" },
+    { name: "Intellectual Property", desc: "IP advisory and protection" }
   ],
   contact: {
     email: "adv.adnansaeed@hotmail.com",
@@ -144,7 +144,6 @@ function App() {
       {/* About */}
       <section id="about" className="py-20 px-6 bg-gray-50">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-light text-gray-900 mb-6">About</h2>
           <p className="text-gray-600 leading-relaxed text-lg">
             {ADVOCATE.about}
           </p>
@@ -213,8 +212,9 @@ function App() {
           <h2 className="text-2xl font-light mb-10 text-center">Practice Areas</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {ADVOCATE.practiceAreas.map((area) => (
-              <div key={area} className="p-4 border border-gray-700">
-                <h3 className="text-lg font-medium">{area}</h3>
+              <div key={area.name} className="p-4 border border-gray-700">
+                <h3 className="text-lg font-medium mb-1">{area.name}</h3>
+                <p className="text-gray-400 text-sm">{area.desc}</p>
               </div>
             ))}
           </div>
