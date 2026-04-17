@@ -160,7 +160,7 @@ function App() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-2 sm:border-4 border-gray-200">
             <img 
-              src="/Adnan Saeed.png" 
+              src="/profile.png" 
               alt={ADVOCATE.name}
               className="w-full h-full object-cover"
               onError={(e) => {e.target.src='/logo.svg'}}
