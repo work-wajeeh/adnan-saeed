@@ -105,23 +105,53 @@ const ADVOCATE = {
 }
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const navItems = [
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#education', label: 'Education' },
+    { href: '#practice', label: 'Practice' },
+    { href: '#contact', label: 'Contact' },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-          <a href="#hero" className="text-base sm:text-lg font-semibold text-gray-900">
+          <a href="#hero" className="text-base sm:text-lg font-semibold text-gray-900" onClick={() => setMobileMenuOpen(false)}>
             {ADVOCATE.name}
           </a>
-          <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm text-gray-600 overflow-x-auto">
-            <a href="#about" className="hover:text-gray-900 transition-colors whitespace-nowrap">About</a>
-            <a href="#experience" className="hover:text-gray-900 transition-colors whitespace-nowrap">Experience</a>
-            <a href="#education" className="hover:text-gray-900 transition-colors whitespace-nowrap">Education</a>
-            <a href="#practice" className="hover:text-gray-900 transition-colors whitespace-nowrap">Practice</a>
-            <a href="#contact" className="hover:text-gray-900 transition-colors whitespace-nowrap">Contact</a>
+          {/* Desktop nav */}
+          <div className="hidden sm:flex gap-3 sm:gap-6 text-xs sm:text-sm text-gray-600">
+            {navItems.map(item => (
+              <a key={item.href} href={item.href} className="hover:text-gray-900 transition-colors whitespace-nowrap">{item.label}</a>
+            ))}
           </div>
+          {/* Mobile hamburger */}
+          <button className="sm:hidden text-gray-900" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 top-14 bg-white z-40 sm:hidden">
+          <div className="flex flex-col p-6 gap-4 text-lg">
+            {navItems.map(item => (
+              <a key={item.href} href={item.href} className="text-gray-900 py-2 border-b border-gray-100" onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Hero */}
       <section id="hero" className="pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
