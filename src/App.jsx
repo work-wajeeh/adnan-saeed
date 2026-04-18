@@ -163,7 +163,6 @@ function App() {
               src="/adnan-saeed/profile.png" 
               alt={ADVOCATE.name}
               className="w-full h-full object-cover"
-              onError={(e) => {e.target.src='/adnan-saeed/logo.svg'}}
             />
           </div>
           <p className="text-xs sm:text-sm text-gray-500 mb-4 tracking-wider uppercase">
